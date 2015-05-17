@@ -14,6 +14,9 @@ var client = rest.wrap(defaultRequest, {
 var Api = {
     hello :function() {
         return client(server + '/hello');
+    },
+    lists : function() {
+        return client(server + '/lists');
     }
 };
 
