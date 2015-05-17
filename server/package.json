@@ -6,10 +6,12 @@
   "author": "Martin Gontovnikas",
   "license": "MIT",
   "dependencies": {
+    "bluebird": "^2.9.25",
     "cors": "^2.3.1",
     "dotenv": "^0.2.8",
     "express": "~3.3.8",
-    "express-jwt": "0.2.1"
+    "express-jwt": "0.2.1",
+    "thinky": "^2.0.2"
   },
   "engines": {
     "node": "0.10.x"
