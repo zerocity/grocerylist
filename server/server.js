@@ -4,6 +4,11 @@ var cors = require('cors');
 var app = express();
 var jwt = require('express-jwt');
 var dotenv = require('dotenv');
+var Api = require('./api/lists');
+
+function error (error) {
+  res.status(500).send();
+}
 
 dotenv.load();
 
@@ -26,17 +31,17 @@ app.configure(function () {
   app.use(app.router);
 });
 
+app.get('/lists', function (req, res) {
+  Api.lists()
+    .then(function (obj) {
+      res.send(200,obj);
+    })
+    .error(error);
+});
+
 
 app.get('/ping', function (req, res) {
   res.send(200, {text: "All good. You don't need to be authenticated to call this"});
-});
-
-app.get('/hello',function (req, res) {
-  res.send(200,{text:"hello"});
-});
-
-app.get('/secured/ping', function(req, res) {
-  res.send(200, {text: "All good. You only get this message if you're authenticated"});
 });
 
 var port = process.env.PORT || 3001;
