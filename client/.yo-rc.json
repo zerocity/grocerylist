@@ -1,7 +1,0 @@
-{
-  "generator-react-webpack": {
-    "app-name": "grocery",
-    "architecture": false,
-    "styles-language": "css"
-  }
-}
