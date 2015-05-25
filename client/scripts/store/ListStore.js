@@ -28,6 +28,7 @@ var RequestStore = Reflux.createStore({
   init: function() {
     this.listenTo(actions.getLists, this.onGetLists);
     this.listenTo(actions.itemUpdate, this.onItemUpdate);
+    this.listenTo(actions.removeItem, this.onRemoveItem);
     this.listenTo(actions.createOrFindUser, this.onCreateOrFindUser);
     this.listenTo(actions.createItem, this.onCreateItem);
   },
@@ -54,6 +55,18 @@ var RequestStore = Reflux.createStore({
       return (item.id == updated.id) ? updated : item;
     });
     this.trigger(this.data);
+  },
+  onRemoveItem:function(deleted) {
+    console.log(deleted);
+    this.data.lists[0].items = this.data.lists[0].items.map(function(item) {
+      if (item.id == deleted.id) {
+        console.log(item);
+      };
+
+
+      //return (item.id == deleted.id) ? del deleted : item;
+    });
+    //this.trigger(this.data);
   },
   onCreateOrFindUser:function(profile,err) {
     var that = this;

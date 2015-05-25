@@ -17,13 +17,13 @@ var List = React.createClass({
                 <li>No Items created</li>
              </ul>)
     }else{
-      return (<ul>
+      return (<div>
         {
           list.items.map(function(item) {
             return (<Item key={item.id} item={item} />)
           })
         }
-      </ul>);
+      </div>);
     }
     /* jshint ignore:end */
   }

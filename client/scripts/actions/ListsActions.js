@@ -6,6 +6,7 @@ var actions = Reflux.createActions([
   "getLists",
   "itemUpdate",
   "createItem",
+  "removeItem",
   "createOrFindUser"]);
 
 var request = require('superagent-bluebird-promise');
@@ -28,7 +29,21 @@ actions.itemUpdate.listen(function(item) {
     .set(auth())
     .send(item)
     .then(actions.itemUpdate.completed)
-    .error(actions.itemUpdate.failed);
+    .error(function(err) {
+      console.log('ASDASD');
+    });
+});
+
+actions.removeItem.listen(function(item) {
+  console.log(item);
+  return request
+    .del(API_HOST+"/api/item/")
+    .set(auth())
+    .send(item)
+    .then(actions.removeItem.completed)
+    .error(function(err) {
+      console.log('ASDASD');
+    });
 });
 
 module.exports = actions;

@@ -70,19 +70,7 @@ function createOrFindUser (profile) {
         return Model.List
           .getAll(users[0].groupId,{'index':'groupId'})
           .getJoin()
-          .run()
-          .then(log)
-
-/*        return Model.Group.get(users[0].groupId).getJoin({
-          "lists":true,
-        }).run().then(function (group) {
-          return Model.List.get(group.lists[0].id).getJoin({
-            "items":true,
-            "participants":true
-          });
-        });
-*/
-
+          .run();
       };
   });
 }

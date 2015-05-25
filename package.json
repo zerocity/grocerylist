@@ -4,6 +4,7 @@
   "dependencies": {
     "async": "~0.7.0",
     "body-parser": "~1.0.2",
+    "classnames": "^2.1.1",
     "colors": "~0.6.2",
     "compression": "~1.0.1",
     "cookie": "~0.1.2",

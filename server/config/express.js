@@ -98,7 +98,9 @@ var expressConfig = function(app, express) {
   // Load routes
   require(path.join(settings.root,'./server/routes'))(app);
 
-
+  app.get('*', function (req, res) {
+    res.sendFile(path.join(settings.staticAssets, '/index.html'), { root: settings.root });
+  });
 
   // 404 Error Handler
   app.use(function(req, res) {

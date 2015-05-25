@@ -10,9 +10,9 @@ var AppHandler        = require('./handlers/root'),
 // declare our routes and their hierarchy
   /* jshint ignore:start */
 var routes = (
-  <Route handler={AppHandler}>
-      <DefaultRoute handler={DashboardHandler} />
-      <Route name="dashboard" path="/myList" handler={DashboardHandler} action="grocery" />
+  <Route name="login" path="/" handler={AppHandler}>
+      <Route name="invide" path="/invide" handler={DashboardHandler} action="grocery" />
+      <Route name="dashboard" path="/dashboard" handler={DashboardHandler} action="grocery" />
   </Route>
 );
 

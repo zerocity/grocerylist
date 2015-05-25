@@ -52,7 +52,6 @@ Api.createOrFindUser = function(req,res) {
 
 Api.createItem = function(req,res) {
   var obj = req.body;
-
   new Model.Item(obj.item)
     .save()
     .then(function(newItem) {
@@ -72,13 +71,32 @@ Api.createItem = function(req,res) {
       res.status(200).json(newItem)
     }).error(log)
     .catch(log);
-
 };
+
+Api.removeItem = function(req,res) {
+  var obj = req.body;
+  Model.Item.get(obj.id)
+    .delete()
+    .then(function(resp) {
+      console.log(resp);
+      return Model.List
+        .get(obj.listId)
+        .getJoin({"items":true})
+        .run();
+    })
+    .then(function(list) {
+      res.status(200).json(list)
+    }).error(log)
+    .catch(log);
+};
+
+
 
 var routes = function(app) {
   app.get('/api/', Api.dashboard);
 
   app.put('/api/item/',Api.updateItem);
+  app.delete('/api/item/',Api.removeItem);
 
   app.post('/api/item/',Api.createItem);
   app.post('/api/user/',Api.createOrFindUser);

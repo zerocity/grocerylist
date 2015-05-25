@@ -19,20 +19,40 @@ var DashBoard = React.createClass({
     actions.getLists();
   },
   render: function(){
+    console.log('dashboard');
     /* jshint ignore:start */
     if (!this.state.login) {
-      return <p>please login</p>
+      return (
+        <section className="view">
+          <header>
+            <span className="logoIcon icon-shopping-basket"></span>
+            <h1 onClick={this.handlerClick} className="listTitle"> Loading ... </h1>
+            <a href="#" className="button-menu icon-settings-wheel"></a>
+          </header>
+        </section>);
     }
+
     var lists = this.state.lists[0]
     if (typeof lists === 'undefined') {
-      return <h1>Loading ...</h1>
+      return (
+        <section className="view">
+          <header>
+            <span className="logoIcon icon-shopping-basket"></span>
+            <h1 onClick={this.handlerClick} className="listTitle"> No List </h1>
+            <a href="#" className="button-menu icon-settings-wheel"></a>
+          </header>
+        </section>)
     }else{
       return (
-        <div>
-          <h1 onClick={this.handlerClick} >{lists.name}</h1>
+        <section className="view">
+          <header>
+            <span className="logoIcon icon-shopping-basket"></span>
+            <h1 onClick={this.handlerClick} className="listTitle"> {lists.name}</h1>
+            <a href="#" className="button-menu icon-settings-wheel"></a>
+          </header>
           <Lists key={lists.id} lists={lists} />
           <AddItem listId={lists.id}/>
-        </div>
+        </section>
       );
     }
     /* jshint ignore:end */
