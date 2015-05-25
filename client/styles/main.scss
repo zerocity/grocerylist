@@ -287,9 +287,18 @@ h3 {
 
 		&--description {
 			display: block;
-			padding: 15px 25px;
+			padding: 12px 25px 13px 25px;
 			margin: 0 51px 0 51px;
-      min-height: 18px;
+      		min-height: 23px;
+
+      		input[type=text] {
+      			width: 100%;
+      			display: block;
+      			background: transparent;
+      			border: none;
+      			margin: 0;
+      			padding: 0;
+      		}
 		}
 
 		&--actions {
@@ -460,6 +469,7 @@ h3 {
 
 	.menu {
 		position: absolute;
+		display: none;
 		top: 49px;
 		right: 0;
 		bottom: 0;
@@ -652,6 +662,39 @@ h3 {
 					}
 				}
 			}
+		}
+	}
+
+	/* list overview */
+
+	.overview {
+		padding: 0;
+		margin: 0;
+
+		li {
+			list-style: none;
+			border-bottom: 1px solid $lightnightblue;
+			padding: 12px 25px;
+
+			&.back {
+				position: relative;
+				padding: 12px 25px 12px 68px;
+				border-bottom: 1px solid $lightnightblue;
+
+				.back-button {
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 48px;
+					text-align: center;
+					padding: 12px 0;
+
+					&:hover {
+						transition: background-color 0.5s ease;
+						background: $lightnightblue;
+					}
+				}
+			}				
 		}
 	}
 }
