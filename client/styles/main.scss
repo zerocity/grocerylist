@@ -784,7 +784,7 @@ h3 {
 			position: fixed;
 			top: 50%;
 			left: 50%;
-			width: 300px;
+			width: 280px;
 			color: #777;
 			text-align: center;
 			transform: translate(-50%, -50%);
@@ -792,25 +792,34 @@ h3 {
 			padding: 25px;
 			box-sizing: border-box;
 			
-			p:first-child {
+			p {
+				font-size: 24px;
+
+				&:first-child {
 					margin-top: 0;
 				}
+			}
 
 			.button {
 				display: inline-block;
-				width: 100px;
+				width: 80px;
 				text-align: center;
 				font-weight: bold;
+				text-decoration: none;
 				color: $mint;
 				-webkit-font-smoothing: antialiased;
 				border: 2px solid $mint;
 				padding: 10px;
-				margin-bottom: 50px;
+				margin-right: 10px;
 				border-radius: 4px;
 
 				&:hover {
 					color: $darkmint;
 					border-color: $darkmint;
+				}
+
+				&:last-child {
+					margin-right: 0;
 				}
 			}
 
@@ -818,10 +827,9 @@ h3 {
 				color: #fff;
 				-webkit-font-smoothing: antialiased;
 				background: $mint;
-				padding: 10px;
-				border-radius: 4px;
 
 				&:hover {
+					border-color: transparent;
 					transition: background-color 0.5s ease;
 					background: $darkmint;
 				}
@@ -832,7 +840,8 @@ h3 {
 
 
 @media only screen
-	and (max-width: 736px) {
+	and (max-width: 736px)
+	and (-webkit-min-device-pixel-ratio: 2) {
 	.view {
 		border: none;
 		border-radius: 0;
