@@ -310,7 +310,7 @@ h3 {
 			width: 48px;
 
 			&.open {
-				width: 192px;
+				width: 144px;
 
 				.action {
 					color: #fff;
@@ -695,6 +695,137 @@ h3 {
 					}
 				}
 			}				
+		}
+	}
+
+	/* users */
+
+	.back {
+		position: relative;
+		display: block;
+		color: #fff;
+		text-decoration: none;
+		padding: 12px 25px 12px 68px;
+		border-bottom: 1px solid $lightnightblue;
+
+		.back-button {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 48px;
+			text-align: center;
+			padding: 12px 0;
+
+			&:hover {
+				transition: background-color 0.5s ease;
+				background: $lightnightblue;
+			}
+		}
+	}
+
+	.users {
+		@include clearfix {};
+		text-align: center;
+
+		.user {
+			width: 100px;
+			display: inline-block;;
+			text-align: center;
+			margin: 20px 0;
+
+
+			&--avatar {
+				display: inline-block;
+				width: 64px;
+				height: 64px;
+				overflow: hidden;
+				border-radius: 50%;
+				padding: 0;
+				box-sizing: border-box;
+				border: 2px solid transparent;
+
+				img {
+					width: 100%;
+				}
+
+				&:hover {
+					transition: border-color 0.5s ease;
+					background: none;
+					border: 2px solid $lightnightblue;
+				}
+
+				&.add {
+					font-size: 40px;
+					color: #fff;
+					background: $lightnightblue;
+					padding: 10px;
+				}
+			}
+
+			&--name {
+				font-size: 16px;
+				text-align: center;
+			}
+		}
+	}
+
+	/* modal window */
+
+	.modal {
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		background: rgba(0, 0, 0, 0.5);
+		z-index: 9999;
+
+		&--box {
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			width: 300px;
+			color: #777;
+			text-align: center;
+			transform: translate(-50%, -50%);
+			background: #fff;
+			padding: 25px;
+			box-sizing: border-box;
+			
+			p:first-child {
+					margin-top: 0;
+				}
+
+			.button {
+				display: inline-block;
+				width: 100px;
+				text-align: center;
+				font-weight: bold;
+				color: $mint;
+				-webkit-font-smoothing: antialiased;
+				border: 2px solid $mint;
+				padding: 10px;
+				margin-bottom: 50px;
+				border-radius: 4px;
+
+				&:hover {
+					color: $darkmint;
+					border-color: $darkmint;
+				}
+			}
+
+			.button.important {
+				color: #fff;
+				-webkit-font-smoothing: antialiased;
+				background: $mint;
+				padding: 10px;
+				border-radius: 4px;
+
+				&:hover {
+					transition: background-color 0.5s ease;
+					background: $darkmint;
+				}
+			}
 		}
 	}
 }
