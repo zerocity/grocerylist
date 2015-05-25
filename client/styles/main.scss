@@ -203,9 +203,10 @@ h3 {
 				padding: 5px 20px 5px 0;
 				box-sizing: border-box;
 				margin-bottom: 20px;
+				border-radius: 0;
 
 				@include placeholder {
-					color: $darkcreme;
+					color: $creme;
 				}
 			}
 
@@ -298,6 +299,10 @@ h3 {
       			border: none;
       			margin: 0;
       			padding: 0;
+
+      			@include placeholder {
+      				color: $creme;
+      			}
       		}
 		}
 
@@ -803,7 +808,7 @@ h3 {
 			.button {
 				display: inline-block;
 				width: 80px;
-				text-align: center;
+				text-align: center;				
 				font-weight: bold;
 				text-decoration: none;
 				color: $mint;
