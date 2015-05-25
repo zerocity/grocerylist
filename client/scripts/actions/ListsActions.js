@@ -23,7 +23,6 @@ var auth = function () {
 }
 
 actions.itemUpdate.listen(function(item) {
-  console.log(item);
   return request
     .put(API_HOST+"/api/item/")
     .set(auth())
@@ -35,7 +34,6 @@ actions.itemUpdate.listen(function(item) {
 });
 
 actions.removeItem.listen(function(item) {
-  console.log(item);
   return request
     .del(API_HOST+"/api/item/")
     .set(auth())

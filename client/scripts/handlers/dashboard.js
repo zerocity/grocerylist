@@ -19,7 +19,6 @@ var DashBoard = React.createClass({
     actions.getLists();
   },
   render: function(){
-    console.log('dashboard');
     /* jshint ignore:start */
     if (!this.state.login) {
       return (

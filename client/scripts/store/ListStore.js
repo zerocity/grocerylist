@@ -52,21 +52,23 @@ var RequestStore = Reflux.createStore({
   },
   onItemUpdate:function(updated) {
     this.data.lists[0].items = this.data.lists[0].items.map(function(item) {
-      return (item.id == updated.id) ? updated : item;
+      return (typeof item !== "undefined" && item.id == updated.id) ? updated : item;
     });
     this.trigger(this.data);
   },
   onRemoveItem:function(deleted) {
-    console.log(deleted);
+    var that = this;
     this.data.lists[0].items = this.data.lists[0].items.map(function(item) {
-      if (item.id == deleted.id) {
-        console.log(item);
-      };
-
-
-      //return (item.id == deleted.id) ? del deleted : item;
+      if (typeof item !== "undefined" && item.id == deleted.id) {
+        var index = that.data.lists[0].items.indexOf(item)
+        if (index > -1) {
+          that.data.lists[0].items.pop(index);
+        }
+      }else{
+        return item
+      }
     });
-    //this.trigger(this.data);
+    this.trigger(that.data);
   },
   onCreateOrFindUser:function(profile,err) {
     var that = this;

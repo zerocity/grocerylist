@@ -20,7 +20,7 @@ var List = React.createClass({
       return (<div>
         {
           list.items.map(function(item) {
-            return (<Item key={item.id} item={item} />)
+            if (typeof item !== 'undefined') {return (<Item key={item.id} item={item} />)};
           })
         }
       </div>);
