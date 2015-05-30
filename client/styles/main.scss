@@ -315,7 +315,7 @@ h3 {
 			width: 48px;
 
 			&.open {
-				width: 144px;
+				width: 192px;
 
 				.action {
 					color: #fff;
@@ -325,6 +325,7 @@ h3 {
 
 			.action {
 				display: inline-block;
+				vertical-align: top;
 				text-align: center;
 				padding: 12px 0;
 				width: 48px;
@@ -341,6 +342,7 @@ h3 {
 					height: 44px;
 					overflow: hidden;
 					border-radius: 50%;
+					vertical-align: top;
 					padding: 0;
 					margin: 2px;
 					box-sizing: border-box;
